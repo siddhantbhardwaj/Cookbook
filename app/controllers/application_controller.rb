@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-  
+  before_action :set_default_response_format
+
   class UnauthorizedError < StandardError; end
   
   rescue_from UnauthorizedError, with: ->() { render_unauthorized 'Unauthorized' }
@@ -21,6 +22,11 @@ class ApplicationController < ActionController::API
   
   def not_found
     render json: { errors: "Record not found" }, status: :not_found, head: :not_found
+  end
+  
+  private
+  def set_default_response_format
+    request.format = :json
   end
     
 end
