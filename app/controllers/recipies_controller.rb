@@ -14,6 +14,15 @@ class RecipiesController < ApplicationController
     end
   end
   
+  def show
+    @recipie = @current_user.recipies.find_by_id(params[:id])
+    if @recipie
+      render 'recipies/show'
+    else
+      not_found
+    end
+  end
+  
   def update
     @recipie = @current_user.recipies.find_by_id(params[:id])
     if @recipie
