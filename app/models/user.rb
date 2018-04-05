@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   ## ASSOCIATIONS ##
   has_many :authentications
-  has_many :recipies, class_name: Recipie
+  has_many :recipies, class_name: "Recipie"
 
   ## VALIDATIONS ##
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
