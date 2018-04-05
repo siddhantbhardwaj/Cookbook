@@ -44,6 +44,6 @@ class RecipiesController < ApplicationController
   
   private
   def recipie_params
-    params.require(:recipie).permit(:title, :ingredients, :description, :instruction, :link)
+    params.require(:recipie).permit(:title, :ingredients, :description, :instruction, :link, :rating)
   end
 end
