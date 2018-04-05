@@ -3,6 +3,7 @@ class Recipie < ApplicationRecord
   belongs_to :user
   
   ## VALIDATIONS ##
-  validates :title, :description, :ingredients, :instruction, presence: true
+  validates :title, :description, :ingredients, :instruction, :link, presence: true
+  validates :link, url: true
   
 end
